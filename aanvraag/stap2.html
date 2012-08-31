@@ -1,8 +1,11 @@
 <ul class="unstyled">
 	<li ng-repeat="dag in gekozenDagen">
 		{{dag.format('DD-MM-YYYY')}}
-		<select>
-			<option ng-repeat="lengte in lengteVerlofdag" value="{{lengte.value}}">{{lengte.tekst}}</option>
-		</select>
+		<select ng-model="dag.lengteVerlof" ng-options="obj as obj.tekst for obj in lengteVerlofdag"></select>
+		<input type="text" class="aantalUren" ng-class="getZichtbaarheid(dag)" ng-model="dag.aantalUren" maxlength="2"/>
 	</li>
 </ul>
+
+<div class="buttons">
+	<a class="btn btnNext" href="#/aanvraag/stap4">Volgende</a>
+</div>

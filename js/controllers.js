@@ -28,7 +28,13 @@ function KalenderCtrl($scope, $rootScope) {
 }
 
 function geefMaandenWaaropVerlofKanGevraagdWorden() {
-	var maanden = [{ maand: moment(), weken: geefWekenVanHuidigeMaand() }];
+	var maanden = [];
+	var currentMonth = moment();
+	for(i = 0; i < 12; ++i) {
+		maanden.push({ maand: currentMonth, weken: geefWekenVanMaand(currentMonth) });
+		currentMonth = moment(currentMonth);
+		currentMonth.add('months', 1);
+	}
 	return maanden;
 }
 

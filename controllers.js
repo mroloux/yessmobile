@@ -1,12 +1,21 @@
 function KalenderCtrl($scope, $rootScope) {
 	
 	$rootScope.gekozenDagen = [];
+	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
     
 	$scope.addDay = function(dayNumber) {
    		$rootScope.gekozenDagen.push({dag:dayNumber});
   	};
   	
-  	$scope.wekenVanHuidigeMaand = function() {
+  	
+  	$scope.classVoorWeek = function($isFirst) {
+  		if($isFirst) {
+  			return 'weekdag-row-first';
+  		}
+  	}
+}
+
+geefWekenVanHuidigeMaand = function() {
   		var weeks = [];
   		var week = [];
   		weeks.push(week);
@@ -29,13 +38,6 @@ function KalenderCtrl($scope, $rootScope) {
   		
   		return weeks;
   	}
-  	
-  	$scope.classVoorWeek = function($isFirst) {
-  		if($isFirst) {
-  			return 'weekdag-row-first';
-  		}
-  	}
-}
 
 function AanvraagKiesUrenPerDagCtrl($scope, $rootScope, $routeParams){
 }

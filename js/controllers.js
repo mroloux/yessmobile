@@ -76,6 +76,10 @@ function geefWekenVanMaand(dagInMaand) {
 }
 
 function AanvraagKiesUrenPerDagCtrl($scope, $rootScope, $routeParams){
+	$rootScope.gekozenDagen.sort(function(a,b){
+		return a.format('YYYYMMDD')-b.format('YYYYMMDD');
+	});
+	
 	$scope.getZichtbaarheid = function getZichtbaarheid(day){
 		if(day.lengteVerlof.value === 'UVM' || day.lengteVerlof.value === 'UNM'){
 			return 'visible';

@@ -1,0 +1,25 @@
+.weekdag-row {
+	clear:both;
+}
+.weekday {
+	float:left;
+	width: 35px;
+	height: 35px;
+	padding: 0;
+	text-align: center;
+	margin: 3px;
+}
+
+.weekdag-header .weekday {
+	width: 37px;
+	margin: 0;
+}
+
+.weekday.active {
+	background-color: black; 
+}
+.weekdag-row {
+}
+.container{
+	top: 150px;
+}

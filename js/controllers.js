@@ -8,14 +8,13 @@ function KalenderCtrl($scope, $rootScope) {
 		{tekst:"Uren voormiddag", value:"UVM"},
 		{tekst:"Uren namiddag", value:"UNM"}];
 	$scope.maandenWaaropVerlofKanGevraagdWorden = geefMaandenWaaropVerlofKanGevraagdWorden();
-    
 	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
-
+	
+    
 	$scope.addDay = function(day) {
 		if($rootScope.gekozenDagen.some(getJuistGekozenDag, day)){
 			$rootScope.gekozenDagen = $rootScope.gekozenDagen.filter(getAlleAndereDagen, day);
 		} else {
-			day.lengteVerlof = $rootScope.lengteVerlofdag[0];
 	   		$rootScope.gekozenDagen.push(day);
 		}
   	};
@@ -34,17 +33,6 @@ function KalenderCtrl($scope, $rootScope) {
   	function getJuistGekozenDag(value){
   		return value == this;
   	}
-}
-
-function geefMaandenWaaropVerlofKanGevraagdWorden() {
-	var maanden = [];
-	var currentMonth = moment();
-	for(i = 0; i < 12; ++i) {
-		maanden.push({ maand: currentMonth, weken: geefWekenVanMaand(currentMonth) });
-		currentMonth = moment(currentMonth);
-		currentMonth.add('months', 1);
-	}
-	return maanden;
 }
 
 function geefWekenVanHuidigeMaand() {
@@ -76,19 +64,21 @@ function geefWekenVanMaand(dagInMaand) {
 }
 
 function AanvraagKiesUrenPerDagCtrl($scope, $rootScope, $routeParams){
-	$rootScope.gekozenDagen.sort(function(a,b){
-		return a.format('YYYYMMDD')-b.format('YYYYMMDD');
-	});
 	
-	$scope.getZichtbaarheid = function getZichtbaarheid(day){
-		if(day.lengteVerlof.value === 'UVM' || day.lengteVerlof.value === 'UNM'){
-			return 'visible';
-		} else {
-			return 'notvisible';
-		}
-	}
+	$rootScope.lengteVerlofdag = [
+		{tekst:"Volledige dag", value:"VD"},
+		{tekst:"Voormiddag", value:"VM"},
+		{tekst:"Namiddag", value:"NM"},
+		{tekst:"Aantal uren voormiddag", value:"UVM"},
+		{tekst:"Aantal uren namiddag", value:"UNM"}];
 }
 
-function AanvraagOverzichtDagenCtrl($scope, $rootScope, $routeParams){
+
+function AlleAanvragenCtrl($scope, $rootScope, $routeParams){
+	$rootScope.alleAanvragen = [
+		new Aanvraag("Van Soom Cynthia", moment(), new Periode(moment("2012-10-15", "YYYY-MM-DD"), moment("2012/10/20","YYYY-MM-DD"))),
+		new Aanvraag("Doe John", moment(), new Periode(moment("2012-11-24", "YYYY-MM-DD"), moment("2012/11/28","YYYY-MM-DD"))),
+		new Aanvraag("Doe John", moment(), new Periode(moment("2012-12-24", "YYYY-MM-DD"), moment("2012/12/31","YYYY-MM-DD")))
+	];
 	
 }

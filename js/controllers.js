@@ -5,8 +5,8 @@ function KalenderCtrl($scope, $rootScope) {
 		{tekst:"Volledige dag", value:"VD"},
 		{tekst:"Voormiddag", value:"VM"},
 		{tekst:"Namiddag", value:"NM"},
-		{tekst:"Aantal uren voormiddag", value:"UVM"},
-		{tekst:"Aantal uren namiddag", value:"UNM"}];
+		{tekst:"Uren voormiddag", value:"UVM"},
+		{tekst:"Uren namiddag", value:"UNM"}];
 	$scope.maandenWaaropVerlofKanGevraagdWorden = geefMaandenWaaropVerlofKanGevraagdWorden();
     
 	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();

@@ -7,6 +7,7 @@ function KalenderCtrl($scope, $rootScope) {
 		{tekst:"Namiddag", value:"NM"},
 		{tekst:"Aantal uren voormiddag", value:"UVM"},
 		{tekst:"Aantal uren namiddag", value:"UNM"}];
+	$scope.maandenWaaropVerlofKanGevraagdWorden = geefMaandenWaaropVerlofKanGevraagdWorden();
     
 	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
 
@@ -33,6 +34,17 @@ function KalenderCtrl($scope, $rootScope) {
   	function getJuistGekozenDag(value){
   		return value == this;
   	}
+}
+
+function geefMaandenWaaropVerlofKanGevraagdWorden() {
+	var maanden = [];
+	var currentMonth = moment();
+	for(i = 0; i < 12; ++i) {
+		maanden.push({ maand: currentMonth, weken: geefWekenVanMaand(currentMonth) });
+		currentMonth = moment(currentMonth);
+		currentMonth.add('months', 1);
+	}
+	return maanden;
 }
 
 function geefWekenVanHuidigeMaand() {

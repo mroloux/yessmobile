@@ -1,5 +1,11 @@
+.maand {
+	margin-bottom: 100px;
+}
 .calendar {
 	width: 260px;
+}
+.calendar h3 {
+	text-align: center;
 }
 .weekdag-row-first {
 	float: right;

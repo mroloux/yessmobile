@@ -10,11 +10,12 @@
 	<script type="text/javascript" src="jquery-1.8.0.min.js"></script>
 	<script type="text/javascript" src="bootstrap.js"></script>
 	<script type="text/javascript" src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+	<script type="text/javascript" src="kalender.js"></script>
 </head>
 <body>
 	
 	<div class="container">
-		<div class="row">
+		<div class="row" ng-controller="KalenderCtrl">
 			<div class="weekdag-row">
 				<div class="maand">Augustus 2012</div>
 				<div class="weekdag-header">
@@ -29,7 +30,7 @@
 			</div>
 			<div class="weekdag-row">
 				<div class="btn-group" data-toggle="buttons-checkbox">
-					<button type="button" class="btn btn-primary btn-primary weekday" dfsfjsdjksjklshkl>1</button>
+					<button type="button" class="btn btn-primary btn-primary weekday" ng-model="dag" ng-click="addDay('01-08-2012')">1</button>
 					<button type="button" class="btn btn-primary weekday">2</button>
 					<button type="button" class="btn btn-warning weekday disabled" disabled>3</button>
 					<button type="button" class="btn btn-warning weekday disabled" disabled>4</button>

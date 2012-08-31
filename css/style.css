@@ -13,6 +13,9 @@
 .weekdag-row {
 	clear: both; 
 }
+body{
+	padding: 40px; /*voor de fixed header bar*/
+}
 .weekday {
 	float: left;
 	width: 35px;

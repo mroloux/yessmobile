@@ -1,10 +1,8 @@
-To be developed
-
-blabla {{gekozenDagen}} blabla
-
-
-<ul>
+<ul class="unstyled">
 	<li ng-repeat="dag in gekozenDagen">
 		{{dag.format('DD-MM-YYYY')}}
+		<select>
+			<option ng-repeat="lengte in lengteVerlofdag" value="{{lengte.value}}">{{lengte.tekst}}</option>
+		</select>
 	</li>
 </ul>

@@ -1,12 +1,20 @@
 function KalenderCtrl($scope, $rootScope) {
 	
 	$rootScope.gekozenDagen = [];
-	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
+	$rootScope.lengteVerlofdag = [
+		{tekst:"Volledige dag", value:"VD"},
+		{tekst:"Voormiddag", value:"VM"},
+		{tekst:"Namiddag", value:"NM"},
+		{tekst:"Aantal uren voormiddag", value:"UVM"},
+		{tekst:"Aantal uren namiddag", value:"UNM"}];
     
+	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
+
 	$scope.addDay = function(day) {
 		if($rootScope.gekozenDagen.some(getJuistGekozenDag, day)){
 			$rootScope.gekozenDagen = $rootScope.gekozenDagen.filter(getAlleAndereDagen, day);
 		} else {
+			day.lengteVerlof = $rootScope.lengteVerlofdag[0];
 	   		$rootScope.gekozenDagen.push(day);
 		}
   	};
@@ -56,11 +64,15 @@ function geefWekenVanMaand(dagInMaand) {
 }
 
 function AanvraagKiesUrenPerDagCtrl($scope, $rootScope, $routeParams){
+	$scope.getZichtbaarheid = function getZichtbaarheid(day){
+		if(day.lengteVerlof.value === 'UVM' || day.lengteVerlof.value === 'UNM'){
+			return 'visible';
+		} else {
+			return 'notvisible';
+		}
+	}
+}
+
+function AanvraagOverzichtDagenCtrl($scope, $rootScope, $routeParams){
 	
-	$rootScope.lengteVerlofdag = [
-		{tekst:"Volledige dag", value:"VD"},
-		{tekst:"Voormiddag", value:"VM"},
-		{tekst:"Namiddag", value:"NM"},
-		{tekst:"Aantal uren voormiddag", value:"UVM"},
-		{tekst:"Aantal uren namiddag", value:"UNM"}];
 }

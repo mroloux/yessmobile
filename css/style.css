@@ -33,3 +33,9 @@
 .buttons {
 	margin-top: 100px;
 }
+.aantalUren{
+	width: 20px;
+}
+input.notvisible{
+	display: none;
+}

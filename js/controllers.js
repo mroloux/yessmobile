@@ -27,13 +27,17 @@ function KalenderCtrl($scope, $rootScope) {
   	}
 }
 
-geefWekenVanHuidigeMaand = function() {
+function geefWekenVanHuidigeMaand() {
+	return geefWekenVanMaand(moment().add('months', 10));
+}
+
+function geefWekenVanMaand(dagInMaand) {
 	var weeks = [];
 	var week = [];
 	weeks.push(week);
-	var lastDayOfMonth =  moment().endOf('month');
+	var lastDayOfMonth =  moment(dagInMaand).endOf('month');
 	
-	var currentDay = moment().startOf('month');
+	var currentDay = moment(dagInMaand).startOf('month');
 	var currentWeek = currentDay.format('w');
 	
 	while(currentDay <= lastDayOfMonth) {
@@ -50,7 +54,6 @@ geefWekenVanHuidigeMaand = function() {
 	
 	return weeks;
 }
-  	
 
 function AanvraagKiesUrenPerDagCtrl($scope, $rootScope, $routeParams){
 	

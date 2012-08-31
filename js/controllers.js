@@ -72,4 +72,5 @@ function AlleAanvragenCtrl($scope, $rootScope, $routeParams){
 		new Aanvraag("Doe John", moment(), new Periode(moment("2012-11-24", "YYYY-MM-DD"), moment("2012/11/28","YYYY-MM-DD"))),
 		new Aanvraag("Doe John", moment(), new Periode(moment("2012-12-24", "YYYY-MM-DD"), moment("2012/12/31","YYYY-MM-DD")))
 	];
+	
 }

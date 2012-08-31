@@ -53,4 +53,11 @@ geefWekenVanHuidigeMaand = function() {
   	
 
 function AanvraagKiesUrenPerDagCtrl($scope, $rootScope, $routeParams){
+	
+	$rootScope.lengteVerlofdag = [
+		{tekst:"Volledige dag", value:"VD"},
+		{tekst:"Voormiddag", value:"VM"},
+		{tekst:"Namiddag", value:"NM"},
+		{tekst:"Aantal uren voormiddag", value:"UVM"},
+		{tekst:"Aantal uren namiddag", value:"UNM"}];
 }

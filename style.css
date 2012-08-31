@@ -23,3 +23,7 @@
 .container{
 	top: 150px;
 }
+
+.btnNext{
+	float:right;
+}

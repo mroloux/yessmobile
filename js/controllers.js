@@ -1,7 +1,15 @@
 function KalenderCtrl($scope, $rootScope) {
 	
 	$rootScope.gekozenDagen = [];
+	$rootScope.lengteVerlofdag = [
+		{tekst:"Volledige dag", value:"VD"},
+		{tekst:"Voormiddag", value:"VM"},
+		{tekst:"Namiddag", value:"NM"},
+		{tekst:"Uren voormiddag", value:"UVM"},
+		{tekst:"Uren namiddag", value:"UNM"}];
+	$scope.maandenWaaropVerlofKanGevraagdWorden = geefMaandenWaaropVerlofKanGevraagdWorden();
 	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
+	
     
 	$scope.addDay = function(day) {
 		if($rootScope.gekozenDagen.some(getJuistGekozenDag, day)){

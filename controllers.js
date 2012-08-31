@@ -3,8 +3,12 @@ function KalenderCtrl($scope, $rootScope) {
 	$rootScope.gekozenDagen = [];
 	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
     
-	$scope.addDay = function(dayNumber) {
-   		$rootScope.gekozenDagen.push({dag:dayNumber});
+	$scope.addDay = function(day) {
+		if($rootScope.gekozenDagen.some(getJuistGekozenDag, day)){
+			$rootScope.gekozenDagen = $rootScope.gekozenDagen.filter(getAlleAndereDagen, day);
+		} else {
+	   		$rootScope.gekozenDagen.push(day);
+		}
   	};
   	
   	
@@ -12,6 +16,14 @@ function KalenderCtrl($scope, $rootScope) {
   		if($isFirst) {
   			return 'weekdag-row-first';
   		}
+  	}
+  	
+  	function getAlleAndereDagen(value){
+  		return value != this;
+  	}
+  	
+  	function getJuistGekozenDag(value){
+  		return value == this;
   	}
 }
 

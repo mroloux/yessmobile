@@ -11,55 +11,9 @@
 			<div class="weekday">Z</div>
 		</div>
 	</div>
-	<div class="weekdag-row">
+	<div class="weekdag-row" ng-repeat="week in wekenVanHuidigeMaand()">
 		<div class="btn-group" data-toggle="buttons-checkbox">
-			<button type="button" class="btn btn-primary btn-primary weekday" ng-model="dag" ng-click="addDay('01-08-2012')">1</button>
-			<button type="button" class="btn btn-primary weekday">2</button>
-			<button type="button" class="btn btn-warning weekday disabled" disabled>3</button>
-			<button type="button" class="btn btn-warning weekday disabled" disabled>4</button>
-			<button type="button" class="btn btn-primary weekday">5</button>
-			<button type="button" class="btn btn-primary weekday">6</button>
-			<button type="button" class="btn btn-primary weekday">7</button>
-		</div>
-	</div>
-	<div class="weekdag-row">
-		<div class="btn-group" data-toggle="buttons-checkbox">
-			<button type="button" class="btn btn-primary weekday">8</button>
-			<button type="button" class="btn btn-primary weekday">9</button>
-			<button type="button" class="btn btn-primary weekday">10</button>
-			<button type="button" class="btn btn-primary weekday">11</button>
-			<button type="button" class="btn btn-primary weekday">12</button>
-			<button type="button" class="btn btn-primary weekday">13</button>
-			<button type="button" class="btn btn-primary weekday">14</button>
-		</div>
-	</div>
-	<div class="weekdag-row">
-		<div class="btn-group" data-toggle="buttons-checkbox">
-			<button type="button" class="btn btn-success weekday disabled" disabled>15</button>
-			<button type="button" class="btn btn-success weekday disabled" disabled>16</button>
-			<button type="button" class="btn btn-primary weekday">17</button>
-			<button type="button" class="btn btn-primary weekday">18</button>
-			<button type="button" class="btn btn-success weekday disabled" disabled>19</button>
-			<button type="button" class="btn btn-primary weekday">20</button>
-			<button type="button" class="btn btn-primary weekday">21</button>
-		</div>
-	</div>
-	<div class="weekdag-row">
-		<div class="btn-group" data-toggle="buttons-checkbox">
-			<button type="button" class="btn btn-primary weekday">22</button>
-			<button type="button" class="btn btn-primary weekday">23</button>
-			<button type="button" class="btn btn-primary weekday">24</button>
-			<button type="button" class="btn btn-primary weekday">25</button>
-			<button type="button" class="btn btn-primary weekday">26</button>
-			<button type="button" class="btn btn-primary weekday">27</button>
-			<button type="button" class="btn btn-primary weekday">28</button>
-		</div>
-	</div>
-	<div class="weekdag-row">
-		<div class="btn-group" data-toggle="buttons-checkbox">
-			<button type="button" class="btn btn-primary weekday">29</button>
-			<button type="button" class="btn btn-primary weekday">30</button>
-			<button type="button" class="btn btn-primary weekday">31</button>
+			<button type="button" class="btn btn-primary weekday" ng-repeat="dag in week">{{dag.format('D')}}</button>
 		</div>
 	</div>
 </div>

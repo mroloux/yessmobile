@@ -7,13 +7,26 @@ function KalenderCtrl($scope) {
   	};
   	
   	$scope.wekenVanHuidigeMaand = function() {
-  		var firstDayOfMonth = moment().startOf('month');
+  		var weeks = [];
+  		var week = [];
+  		weeks.push(week);
   		var lastDayOfMonth =  moment().endOf('month');
-  		var currentDay = firstDayOfMonth; 
-  		var days = [];
-  		while(currentDay != lastDayOfMonth) {
-  			days.push(currentDay);
+  		
+  		var currentDay = moment().startOf('month');
+  		var currentWeek = currentDay.format('w');
+  		
+  		while(currentDay <= lastDayOfMonth) {
+  			var newWeek = currentDay.format('w');
+  			if(newWeek != currentWeek) {
+  				week = [];
+  				weeks.push(week);
+  				currentWeek = newWeek;
+  			}
+  			week.push(currentDay);
+  			currentDay = moment(currentDay);
+  			currentDay.add('days', 1);
   		}
-  		return days;
+  		
+  		return weeks;
   	} 
 }

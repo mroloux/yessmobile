@@ -1,0 +1,10 @@
+<table class="table">
+	<thead>
+		<th>Naam<br/>Aanvraagdatum<br/>Periode</th>
+	</thead>
+	<tr ng-repeat="aanvraag in alleAanvragen">
+		<td><div>{{aanvraag.naam}}</div>
+		<div>{{aanvraag.aanvraagDatum.format('DD-MM-YYYY')}}</div><div>{{aanvraag.periode.format()}}</div>
+		</td>
+	</tr>
+</table>

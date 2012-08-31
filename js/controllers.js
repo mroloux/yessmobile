@@ -1,5 +1,4 @@
 function KalenderCtrl($scope, $rootScope) {
-	
 	$rootScope.gekozenDagen = [];
 	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
     
@@ -10,7 +9,6 @@ function KalenderCtrl($scope, $rootScope) {
 	   		$rootScope.gekozenDagen.push(day);
 		}
   	};
-  	
   	
   	$scope.classVoorWeek = function($isFirst) {
   		if($isFirst) {
@@ -56,11 +54,18 @@ function geefWekenVanMaand(dagInMaand) {
 }
 
 function AanvraagKiesUrenPerDagCtrl($scope, $rootScope, $routeParams){
-	
 	$rootScope.lengteVerlofdag = [
 		{tekst:"Volledige dag", value:"VD"},
 		{tekst:"Voormiddag", value:"VM"},
 		{tekst:"Namiddag", value:"NM"},
 		{tekst:"Aantal uren voormiddag", value:"UVM"},
 		{tekst:"Aantal uren namiddag", value:"UNM"}];
+}
+
+function AlleAanvragenCtrl($scope, $rootScope, $routeParams){
+	$rootScope.alleAanvragen = [
+		new Aanvraag("Van Soom Cynthia", moment(), new Periode(moment("2012-10-15", "YYYY-MM-DD"), moment("2012/10/20","YYYY-MM-DD"))),
+		new Aanvraag("Doe John", moment(), new Periode(moment("2012-11-24", "YYYY-MM-DD"), moment("2012/11/28","YYYY-MM-DD"))),
+		new Aanvraag("Doe John", moment(), new Periode(moment("2012-12-24", "YYYY-MM-DD"), moment("2012/12/31","YYYY-MM-DD")))
+	];
 }

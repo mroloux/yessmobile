@@ -1,7 +1,7 @@
 function KalenderCtrl($scope, $rootScope) {
 	
 	$rootScope.gekozenDagen = [];
-	$scope.wekenVanHuidigeMaand = geefWekenVanHuidigeMaand();
+	$scope.maandenWaaropVerlofKanGevraagdWorden = geefMaandenWaaropVerlofKanGevraagdWorden();
     
 	$scope.addDay = function(day) {
 		if($rootScope.gekozenDagen.some(getJuistGekozenDag, day)){
@@ -25,6 +25,11 @@ function KalenderCtrl($scope, $rootScope) {
   	function getJuistGekozenDag(value){
   		return value == this;
   	}
+}
+
+function geefMaandenWaaropVerlofKanGevraagdWorden() {
+	var maanden = [{ maand: moment(), weken: geefWekenVanHuidigeMaand() }];
+	return maanden;
 }
 
 function geefWekenVanHuidigeMaand() {

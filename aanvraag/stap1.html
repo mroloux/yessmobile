@@ -1,19 +1,21 @@
 <div class="calendar">
-	<div class="weekdag-row">
-		<div class="maand">Augustus 2012</div>
-		<div class="weekdag-header">
-			<div class="weekday">M</div>
-			<div class="weekday">D</div>
-			<div class="weekday">W</div>
-			<div class="weekday">D</div>
-			<div class="weekday">V</div>
-			<div class="weekday">Z</div>
-			<div class="weekday">Z</div>
+	<div ng-repeat="maand in maandenWaaropVerlofKanGevraagdWorden">
+		<div class="weekdag-row">
+			<h3>{{maand.maand.format('MMMM YYYY')}}</h3>
+			<div class="weekdag-header">
+				<div class="weekday">M</div>
+				<div class="weekday">D</div>
+				<div class="weekday">W</div>
+				<div class="weekday">D</div>
+				<div class="weekday">V</div>
+				<div class="weekday">Z</div>
+				<div class="weekday">Z</div>
+			</div>
 		</div>
-	</div>
-	<div class="weekdag-row {{classVoorWeek($first)}}" ng-repeat="week in wekenVanHuidigeMaand">
-		<div class="btn-group" data-toggle="buttons-checkbox">
-			<button type="button" class="btn btn-primary weekday" ng-click="addDay(dag)" ng-repeat="dag in week">{{dag.format('D')}}</button>
+		<div class="weekdag-row {{classVoorWeek($first)}}" ng-repeat="week in maand.weken">
+			<div class="btn-group" data-toggle="buttons-checkbox">
+				<button type="button" class="btn btn-primary weekday" ng-click="addDay(dag)" ng-repeat="dag in week">{{dag.format('D')}}</button>
+			</div>
 		</div>
 	</div>
 	<div class="buttons">

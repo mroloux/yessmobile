@@ -1,6 +1,9 @@
 .calendar {
 	width: 260px;
 }
+.calendar h3 {
+	text-align: center;
+}
 .weekdag-row-first {
 	float: right;
 }
